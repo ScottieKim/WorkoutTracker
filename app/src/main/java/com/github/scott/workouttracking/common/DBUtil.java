@@ -17,11 +17,11 @@ import java.util.Map;
 
 public class DBUtil {
     private final String TAG = "DB";
-    private final String MEMBER_COLLECTION = "member";
+    public final String MEMBER_COLLECTION = "member";
 
-    public void saveData(Map<String, Object> data) {
+    public void saveData(Map<String, Object> data, String collection) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection(MEMBER_COLLECTION)
+        db.collection(collection)
                 .add(data)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
@@ -37,23 +37,23 @@ public class DBUtil {
                 });
     }
 
-    public void readData() {
+    public void readData(String collection, DBListener listener) {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection(MEMBER_COLLECTION)
+        db.collection(collection)
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
-                            for (QueryDocumentSnapshot document : task.getResult()) {
-                                Map<String, Object> data = document.getData();
-                                String name = String.valueOf(data.get("name"));
-                                Log.e(TAG, name);
-                            }
+                            listener.result(task);
                         } else {
                             Log.w(TAG, "Error getting documents.", task.getException());
                         }
                     }
                 });
+    }
+
+    public interface DBListener {
+        public void result(Task<QuerySnapshot> data);
     }
 }
