@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "774680737917",
+    "project_id": "workouttracker-70ff5",
+    "storage_bucket": "workouttracker-70ff5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:774680737917:android:e6a8b76984a720728e1914",
+        "android_client_info": {
+          "package_name": "com.github.scott.workouttracking"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "774680737917-2skf880u4uilrtf896j6a3qokhap7pg8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.github.scott.workouttracking",
+            "certificate_hash": "a232f1947625dd035e9b1ecf1ad96ba33da4d9f7"
+          }
+        },
+        {
+          "client_id": "774680737917-hg2ma4ghhpg9paslu59p0jq72phk8nui.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDvSeRMQ6MVI2mohyQQ02BQtOx5W_hvLoo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "774680737917-hg2ma4ghhpg9paslu59p0jq72phk8nui.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
