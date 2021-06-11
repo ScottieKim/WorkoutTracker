@@ -18,6 +18,8 @@ public class LoginViewModel extends ViewModel {
     private MutableLiveData<String> showToast = new MutableLiveData<>();
     private MutableLiveData<Boolean> moveSignup = new MutableLiveData<>();
     private MutableLiveData<Boolean> moveMain = new MutableLiveData<>();
+    private MutableLiveData<Boolean> back = new MutableLiveData<Boolean>();
+
     public String id = "";
     public String password = "";
     public int gender = 1; // 1: man; 2: woman
@@ -59,6 +61,14 @@ public class LoginViewModel extends ViewModel {
     // 회원가입 화면 이동
     public void onClickMoveSignup() {
         moveSignup.postValue(true);
+    }
+
+    public void onClickBack() {
+        getBack().postValue(true);
+    }
+
+    public MutableLiveData<Boolean> getBack() {
+        return back;
     }
 
     public MutableLiveData<String> getShowToast() {

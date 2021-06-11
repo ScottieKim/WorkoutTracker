@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'com.google.gms.google-services'
+    id 'com.google.secrets_gradle_plugin' version '0.5'
 }
 
 android {
@@ -48,4 +49,10 @@ dependencies {
     // firebase
     implementation platform('com.google.firebase:firebase-bom:27.1.0')
     implementation 'com.google.firebase:firebase-firestore'
+
+    // view
+    implementation "androidx.recyclerview:recyclerview:1.2.0"
+
+    // map
+    implementation 'com.google.android.gms:play-services-maps:17.0.1'
 }

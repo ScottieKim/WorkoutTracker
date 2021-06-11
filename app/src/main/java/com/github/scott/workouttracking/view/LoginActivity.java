@@ -47,7 +47,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
         binding.setViewModel(viewModel);
 

@@ -23,6 +23,12 @@ public class SignupActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         viewModel = new ViewModelProvider(this).get(LoginViewModel.class);
+        viewModel.getBack().observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+                finish();
+            }
+        });
         binding = DataBindingUtil.setContentView(this, R.layout.activity_signup);
         binding.setViewModel(viewModel);
 
