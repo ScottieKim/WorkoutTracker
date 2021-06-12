@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/grey_box"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/userId"
+            style="@style/TitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="userID"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/userIdContent"
+            style="@style/ContentStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@{item.getUserId()}"
+            app:layout_constraintBottom_toBottomOf="@+id/userId"
+            app:layout_constraintLeft_toRightOf="@+id/userId"
+            app:layout_constraintTop_toTopOf="@+id/userId" />
+
+        <TextView
+            android:id="@+id/distanceTitle"
+            style="@style/TitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="distance"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userId" />
+
+        <TextView
+            android:id="@+id/distanceContent"
+            style="@style/ContentStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:text="@{item.getDistance()}"
+            app:layout_constraintBottom_toBottomOf="@+id/distanceTitle"
+            app:layout_constraintLeft_toRightOf="@+id/distanceTitle"
+            app:layout_constraintTop_toTopOf="@+id/distanceTitle" />
+
+        <TextView
+            android:id="@+id/caloriesTitle"
+            style="@style/TitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="calories"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/distanceTitle" />
+
+        <TextView
+            android:id="@+id/caloriesContent"
+            style="@style/ContentStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{item.getCalories()}"
+            app:layout_constraintBottom_toBottomOf="@+id/caloriesTitle"
+            app:layout_constraintLeft_toLeftOf="@+id/distanceContent"
+            app:layout_constraintTop_toTopOf="@+id/caloriesTitle" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.github.scott.workouttracking.data.History" />
+    </data>
+</layout>

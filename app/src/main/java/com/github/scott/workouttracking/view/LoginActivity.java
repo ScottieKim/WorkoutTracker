@@ -43,6 +43,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onChanged(Boolean aBoolean) {
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                intent.putExtra("user", viewModel.id);
                 startActivity(intent);
             }
         });

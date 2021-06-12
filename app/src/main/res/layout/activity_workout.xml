@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
 
-    <data>
-
-        <variable
-            name="viewModel"
-            type="com.github.scott.workouttracking.data.WorkoutViewModel" />
-    </data>
-
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
@@ -21,24 +14,38 @@
             android:layout_marginRight="5dp"
             android:onClick="@{()->viewModel.onClickStart()}"
             android:text="Start"
-            app:layout_constraintBottom_toBottomOf="@+id/endButton"
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@+id/endButton"
             app:layout_constraintTop_toTopOf="@+id/endButton" />
 
         <Button
-            android:id="@+id/endButton"
+            android:id="@+id/saveButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="20dp"
+            android:onClick="@{()->viewModel.onClickSave()}"
+            android:text="Save"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toRightOf="@+id/endButton"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/map" />
+
+        <Button
+            android:id="@+id/endButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:onClick="@{()->viewModel.onClickEnd()}"
             android:text="End"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_weight="1"
             app:layout_constraintLeft_toRightOf="@+id/startButton"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/saveButton"
             app:layout_constraintTop_toBottomOf="@+id/map" />
 
         <ImageButton
@@ -69,15 +76,26 @@
             app:layout_editor_absoluteY="0dp" />
 
         <TextView
-            android:layout_width="wrap_content"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:text="0 M"
-            style="@style/TitleStyle"
             android:id="@+id/distance"
+            style="@style/TitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:layout_height="wrap_content"/>
+            android:text="0 M"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/speed"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/speed"
+            style="@style/TitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="0 m/s"
+            app:layout_constraintLeft_toRightOf="@+id/distance"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <fragment
             android:id="@+id/map"
@@ -90,5 +108,12 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/distance" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.github.scott.workouttracking.data.WorkoutViewModel" />
+    </data>
 
 </layout>

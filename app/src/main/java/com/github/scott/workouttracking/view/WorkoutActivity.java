@@ -1,6 +1,7 @@
 package com.github.scott.workouttracking.view;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -11,6 +12,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -43,7 +45,6 @@ public class WorkoutActivity extends AppCompatActivity implements LocationListen
     private GoogleMap googleMap = null;
     private LocationManager locationManager;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +52,12 @@ public class WorkoutActivity extends AppCompatActivity implements LocationListen
         viewModel = new ViewModelProvider(this).get(WorkoutViewModel.class);
         viewModel.getBack().observe(this, new Observer<Boolean>() {
             @Override
-            public void onChanged(Boolean aBoolean) {
+            public void onChanged(Boolean isSave) {
+                if (isSave) {
+                    setResult(RESULT_OK, getIntent());
+                } else {
+                    setResult(RESULT_CANCELED, getIntent());
+                }
                 finish();
             }
         });
@@ -62,16 +68,23 @@ public class WorkoutActivity extends AppCompatActivity implements LocationListen
             }
         });
         viewModel.getEnd().observe(this, new Observer<String>() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onChanged(String sum) {
                 binding.distance.setText(sum);
-
+                binding.speed.setText(viewModel.getAverageSpeed() + " m/s");
                 List<LatLng> list = viewModel.getLatLngList();
                 addMarker(list.get(list.size() - 1));
                 locationManager.removeUpdates(WorkoutActivity.this);
             }
         });
-
+        viewModel.getShowToast().observe(this, new Observer<String>() {
+            @Override
+            public void onChanged(String s) {
+                Toast.makeText(WorkoutActivity.this, s, Toast.LENGTH_SHORT).show();
+            }
+        });
+        viewModel.setUser(getIntent().getStringExtra("user"));
         binding = DataBindingUtil.setContentView(this, R.layout.activity_workout);
         binding.setViewModel(viewModel);
     }
@@ -128,14 +141,16 @@ public class WorkoutActivity extends AppCompatActivity implements LocationListen
     public void onLocationChanged(@NonNull Location location) {
         double latitude = location.getLatitude();
         double longitude = location.getLongitude();
+        float speed = location.getSpeed();
 
-        // Log.e("GPS", latitude + " , " + longitude);
+        Log.e("GPS", speed + ", " + latitude + " , " + longitude);
         LatLng latLng = new LatLng(latitude, longitude);
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 15f));
 
-        viewModel.setLatLng(latLng);
+        viewModel.setLatLng(latLng, speed);
         viewModel.setLocation(location);
 
+        // 선
         PolylineOptions options = new PolylineOptions()
                 .color(Color.RED)
                 .width(10)

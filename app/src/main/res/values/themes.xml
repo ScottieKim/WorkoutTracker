@@ -22,7 +22,7 @@
     </style>
 
     <style name="ContentStyle" parent="Widget.AppCompat.TextView">
-        <item name="android:textSize">@dimen/textsize_13</item>
+        <item name="android:textSize">@dimen/textsize_16</item>
         <item name="android:textColor">@color/darkgrey_1</item>
     </style>
 
