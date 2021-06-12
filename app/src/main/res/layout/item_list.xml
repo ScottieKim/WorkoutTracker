@@ -12,6 +12,17 @@
         android:padding="12dp">
 
         <TextView
+            android:id="@+id/rank"
+            style="@style/TitleStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(rank)}"
+            android:textColor="@color/purple_200"
+            android:textSize="36sp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
             android:id="@+id/userId"
             style="@style/TitleStyle"
             android:layout_width="wrap_content"
@@ -78,5 +89,9 @@
         <variable
             name="item"
             type="com.github.scott.workouttracking.data.model.History" />
+
+        <variable
+            name="rank"
+            type="Integer" />
     </data>
 </layout>

@@ -49,6 +49,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.Holder> {
 
         public void bind(History history) {
             binding.setItem(history);
+            binding.setRank(getAdapterPosition() + 1);
         }
     }
 }
