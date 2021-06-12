@@ -1,4 +1,4 @@
-package com.github.scott.workouttracking.view;
+package com.github.scott.workouttracking.view.activity;
 
 import android.os.Bundle;
 import android.widget.RadioGroup;
@@ -11,7 +11,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.github.scott.workouttracking.R;
-import com.github.scott.workouttracking.data.LoginViewModel;
+import com.github.scott.workouttracking.data.viewmodel.LoginViewModel;
 import com.github.scott.workouttracking.databinding.ActivitySignupBindingImpl;
 
 public class SignupActivity extends AppCompatActivity {

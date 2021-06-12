@@ -113,7 +113,7 @@
 
         <variable
             name="viewModel"
-            type="com.github.scott.workouttracking.data.WorkoutViewModel" />
+            type="com.github.scott.workouttracking.data.viewmodel.WorkoutViewModel" />
     </data>
 
 </layout>

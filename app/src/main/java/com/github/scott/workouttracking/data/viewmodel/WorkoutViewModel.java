@@ -1,4 +1,4 @@
-package com.github.scott.workouttracking.data;
+package com.github.scott.workouttracking.data.viewmodel;
 
 import android.location.Location;
 import android.util.Log;

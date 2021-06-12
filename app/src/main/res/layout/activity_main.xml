@@ -6,7 +6,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.MainActivity">
+        tools:context=".view.activity.MainActivity">
 
         <Button
             android:id="@+id/startButton"
@@ -68,6 +68,6 @@
 
         <variable
             name="viewModel"
-            type="com.github.scott.workouttracking.data.MainViewModel" />
+            type="com.github.scott.workouttracking.data.viewmodel.MainViewModel" />
     </data>
 </layout>

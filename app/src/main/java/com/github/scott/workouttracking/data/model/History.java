@@ -1,4 +1,4 @@
-package com.github.scott.workouttracking.data;
+package com.github.scott.workouttracking.data.model;
 
 public class History {
     String userId = "";

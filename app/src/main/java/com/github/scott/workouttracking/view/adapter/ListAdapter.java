@@ -1,4 +1,4 @@
-package com.github.scott.workouttracking.view;
+package com.github.scott.workouttracking.view.adapter;
 
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -8,7 +8,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.github.scott.workouttracking.R;
-import com.github.scott.workouttracking.data.History;
+import com.github.scott.workouttracking.data.model.History;
 import com.github.scott.workouttracking.databinding.ItemListBinding;
 
 import java.util.ArrayList;

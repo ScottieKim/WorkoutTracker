@@ -1,4 +1,4 @@
-package com.github.scott.workouttracking.view;
+package com.github.scott.workouttracking.view.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,11 +11,9 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.github.scott.workouttracking.R;
-import com.github.scott.workouttracking.data.History;
-import com.github.scott.workouttracking.data.MainViewModel;
+import com.github.scott.workouttracking.data.viewmodel.MainViewModel;
 import com.github.scott.workouttracking.databinding.ActivityMainBinding;
-
-import java.util.List;
+import com.github.scott.workouttracking.view.adapter.ListAdapter;
 
 public class MainActivity extends AppCompatActivity {
     private MainViewModel viewModel;

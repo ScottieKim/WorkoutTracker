@@ -1,9 +1,10 @@
-package com.github.scott.workouttracking.data;
+package com.github.scott.workouttracking.data.viewmodel;
 
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 import com.github.scott.workouttracking.common.DBUtil;
+import com.github.scott.workouttracking.data.model.History;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -66,9 +67,9 @@ public class MainViewModel extends ViewModel {
                         Map<String, Object> data = item.getData();
 
                         String userId = String.valueOf(data.get("user"));
-                        String sumDistance = String.valueOf(data.get("sumDistance")) + "M";
-                        String averageSpeed = String.valueOf(data.get("averageSpeed")) + "m/s";
-                        String calories = String.valueOf(data.get("calories"));
+                        String sumDistance = String.valueOf(data.get("sumDistance")) + " M";
+                        String averageSpeed = String.valueOf(data.get("averageSpeed")) + " m/s";
+                        String calories = String.valueOf(data.get("calories")) + " cal";
 
                         History history = new History(userId, sumDistance, averageSpeed, calories);
                         histories.add(history);

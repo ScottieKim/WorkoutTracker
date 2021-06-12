@@ -12,16 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WorkoutTracking">
-        <activity android:name=".view.LoginActivity">
+        <activity android:name=".view.activity.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.MainActivity" />
-        <activity android:name=".view.SignupActivity" />
-        <activity android:name=".view.WorkoutActivity" />
+        <activity android:name=".view.activity.MainActivity" />
+        <activity android:name=".view.activity.SignupActivity" />
+        <activity android:name=".view.activity.WorkoutActivity" />
 
         <meta-data
             android:name="com.google.android.gms.version"

@@ -77,6 +77,6 @@
 
         <variable
             name="item"
-            type="com.github.scott.workouttracking.data.History" />
+            type="com.github.scott.workouttracking.data.model.History" />
     </data>
 </layout>
