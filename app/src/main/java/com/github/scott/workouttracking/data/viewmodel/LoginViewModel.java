@@ -24,10 +24,8 @@ public class LoginViewModel extends ViewModel {
     public String password = "";
     public int gender = 1; // 1: man; 2: woman
 
-    // 회원가입
+    // Sign up
     public void onClickSignup() {
-        // Log.e("TTTTT", "id: " + id + "     pwd: " + password + "    gender: " + gender);
-
         Map<String, Object> data = new HashMap<>();
         data.put("id", id);
         data.put("password", password);
@@ -36,7 +34,7 @@ public class LoginViewModel extends ViewModel {
         showToast.postValue("가입이 완료되었습니다.");
     }
 
-    // 로그인
+    // Login
     public void onClickLogin() {
         dbUtil.readData(dbUtil.MEMBER_COLLECTION, new DBUtil.DBListener() {
             @Override

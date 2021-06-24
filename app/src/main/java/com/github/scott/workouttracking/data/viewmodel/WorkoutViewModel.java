@@ -63,7 +63,7 @@ public class WorkoutViewModel extends ViewModel {
                         map.put("calories", c);
 
                         dbUtil.saveData(map, dbUtil.HISTORY_COLLECTION);
-                        showToast.postValue("기록이 저장되었습니다. ");
+                        showToast.postValue("Record saved. ");
                         back.postValue(true);
                         break;
                     }
